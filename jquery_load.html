@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>load demo</title>
+<style>
+body {
+font-size: 12px;
+font-family: Arial;
+}
+</style>
+<script src="jquery-1.10.2.js"></script>
+</head>
+<body>
+<b>Monitor</b>
+<div id="success"></div>
+<div id="error"></div>
+
+<div id="demo"></div>
+
+<script>
+
+cars = ["BMW", "Volvo", "Saab", "Ford"];
+var i;
+for (i = 0, l = cars.length, text = ""; i < l; i++) {
+    fetchData(cars[i]);
+}
+
+/*
+$.getJSON('config.json', function (json) {
+var array = [];
+for (var key in json) {
+
+    console.log("log: key" + key);
+    
+    if (json.hasOwnProperty(key)) {
+        var item = json[key];
+
+        array.push({
+            server: item.name
+        });            
+    }
+}
+
+});
+*/
+
+function fetchData(url){
+	console.log(url);
+
+	
+}
+
+$( "#success" ).load( "text.txt", function( response, status, xhr ) {
+if ( status == "error" ) {
+var msg = "Sorry but there was an error: ";
+$( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
+}else {
+	
+	fetchData(xhr.statusText);
+
+	//loop enviroment
+
+	//loop servers
+
+	//fetch cts status (port 1-9)
+}
+});
+</script>
+</body>
+</html>
